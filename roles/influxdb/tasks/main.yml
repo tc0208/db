@@ -1,0 +1,20 @@
+---
+
+#- name: download influxdb rpm file
+#  remote_user: "{{ remote_user }}"
+#  become: yes
+#  get_url: url="https://dl.influxdata.com/influxdb/releases/{{ rpm_influxdb }}" dest={{ dir_rpm }} validate_certs=no
+#  when: (ansible_distribution == "CentOS" and ansible_distribution_major_version == "6")
+#  register: file_stat
+
+#- name: install influxdb
+#  remote_user: "{{ remote_user }}"
+#  become: yes
+#  command: rpm -ivh {{ dir_rpm }}/{{ rpm_influxdb }}
+#  when: file_stat.stat.exists == True
+
+- name: deploy influxdb.conf
+  become: yes
+  template: src=influxdb.j2 dest={{ influxdb_conf }}/influxdb.conf mode=0664
+  notify: restart collectd
+

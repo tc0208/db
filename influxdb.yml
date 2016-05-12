@@ -1,0 +1,7 @@
+---
+- name: setup influxdb
+  hosts: all
+  roles:
+    - influxdb
+
+

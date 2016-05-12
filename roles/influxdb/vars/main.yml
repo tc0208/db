@@ -1,0 +1,13 @@
+remote_user: fih
+
+rpm_influxdb: "influxdb-0.12.2-1.x86_64.rpm"
+
+dir_rpm: "/tmp"
+influxdb_conf: "/etc/influxdb"
+
+port_admin: "8083"
+port_http: "8086"
+port_icinga: "2004"
+port_graphite: "2003"
+port_collectd: "2005"
+
